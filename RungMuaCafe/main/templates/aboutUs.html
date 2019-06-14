@@ -1,0 +1,54 @@
+{% extends 'base_generic.html' %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+
+{% load staticfiles %}
+
+<!-- Container (Introduction Section) -->
+<div class="w3-content w3-container w3-padding-64" style="text-align: justify;" id="Introduction">
+  <h3 class="w3-center">Introduction</h3>
+  <p class="w3-center"><em>Because...</em></p>
+  <p class="w3-center"><img src="{% static 'Images/backgrounds/aboutus1.jpg' %}" style="width:70%; height:70%"></p>
+  <br>
+  <p>When mentioning Vietnamese specialties, Pho and Nem will be foreigners' right-off the-bat answer. But that is only one grain of salt in the whole "desert" of Viet Nam's delicious specialties. Perceiving this point, Rung Mua Cafe is willing to bring Viet Nam's traditional culture and cuisine to Korean customers, with firm belief that our selection of beverages and cakes will definitely "seduce" even our most demanding customers.
+</p>
+</div>
+
+
+<div class="w3-row w3-center w3-light-grey w3-padding-16">
+</div>
+
+
+<!-- Container (Stories Section) -->
+<div class="w3-content w3-container w3-padding-64" style="text-align: justify;" id="Stories">
+  <h3 class="w3-center">Our stories</h3>
+  <p class="w3-center"><em>Where our idea came from</em></p><br>
+ <p class= "w3-center">"Rung Mua" means "Rainforest" in Vietnamese.</p>
+ <p>At first, when first thinking about starting a coffee shop with special theme, the coffee shop owners - Jaeweon and Minh - were having a headache pondering which theme to choose from, in order to make our coffee shop stand out creatively, as welll as give customers the best experience. I suggested that we should go with a manga theme or a game theme, considering these are a trend in Asian countries. But then Jaeweon asked me which drinks are the most favored in Vietnam, I suddenly thought of "chè"-the most popular sweet dessert among Vietnamese high-schoolers and students. It is not a bad idea, since "Chè" is so underrated for outsiders, while I, as a "Chè" crazy fan, was very let down not being able to find a whole "chè"-specific store abroad, no matter where I went (the US, France or Korea). If boba tea can become a new worldwide tendency, why not "chè"?</p>
+ <p>Since this shop will be selling Vietnamese traditional cuisine, it should have a Viet Nam themed with a Vietnamese name. So in the end, "Rung Mua" with a green and classic theme came up.</p>
+ <p></p>
+	<p class="w3-center"><img class= "img-fluid" class="aligncenter" src="{% static 'Images/backgrounds/aboutus2.jpg' %}"/> </p>
+	<p class="w3-center"><img class= "img-fluid"  src="{% static 'Images/backgrounds/aboutus3.jpg' %}"/> </p>
+	<p class="w3-center"><img class= "img-fluid"  src="{% static 'Images/backgrounds/aboutus4.jpg' %}"/> </div>
+
+
+</div>
+
+<div class="w3-row w3-center w3-light-grey w3-padding-16">
+</div>
+
+<!-- Container (Coffee Section) -->
+<div class="w3-content w3-container w3-padding-64" style="text-align: justify;" id="Coffee">
+  <h3 class="w3-center">Our Coffee</h3>
+  <p class="w3-center"><em>Selected from Viet Nam's best source.</em></p>
+<p>Coffee was introduced into Vietnam by the French in 1857. Now Viet Nam has become the second biggest coffee exporting country in the world.</p>
+<p>97% of Vietnamese coffee comes from Robusta species. It is known for its low acidity and strong bitterness, thus is frequently used as instant coffee or the base for coffee mixture. Compared to Arabica, Robusta is easier to take care of, prevent diseases and have bigger crop productivity. It contains twice as much caffeine as the other coffee and more anti-oxydants. Overall, Viet Nam contributes 40% of the world's Robusta's quantity.</p>
+<p>What makes Viet Nam's coffee special is that, besides having great productivity, coffee has been incorporated into Viet Nam's culture, as it appears in every Saigonese's breakfast, but also because it is consumed with Vietnamese "out-of-this-world" styles. Who would have thought that coffee could taste so good in mixture with yolk? And "cafe phin" filtered on spot will for sure leave instant coffee drinkers jawdrop. </p>
+	<p class="w3-center"><img class= "img-fluid"  src="{% static 'Images/backgrounds/aboutus5.jpg' %}"></p>
+    <p class="w3-center"><em>Ca phe sua da (iced milk coffee)</em></p>
+	<p class="w3-center"><img class= "img-fluid"  src="{% static 'Images/backgrounds/aboutus6.jpg' %}"></p>
+    <p class="w3-center"><em>Ca phe trung (egg coffee)</em></p>
+
+</div>
+
+{% endblock %}

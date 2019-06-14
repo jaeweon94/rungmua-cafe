@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>{% block title %}Rung Mua Cafe Website{% endblock %}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+<link href="https://codepen.io/elishaterada/pen/tGokD" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+
+    .a{
+        margin-top : 10px;
+        margin-bottom : 10px;
+        width: 100px;
+    }
+
+    .b{
+        margin-top : 25px;
+    }
+
+    .c{
+       margin-top : 20px;
+    }
+
+    .visit {
+        margin-top: 40px;
+        margin-bottom: 0px;
+    }
+    .login {
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    #cssmenu{
+        margin-bottom:30px;
+    }
+
+    iframe{
+        height:1000px;
+    }
+
+    .sold-out {
+        font-size: 18px;
+        color : #ff0000;
+    }
+
+    .stock {
+        color : #008000;
+    }
+
+    #footer {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left:200px;
+        background-color: #008000;
+        height: 130px;
+        position:relative;
+        clear:both;
+    }
+    #footer p{
+        color: #ffffff;
+
+        margin-bottom: 3px;
+        font-size: 11px;
+        margin-left:20px;
+    }
+    #footer .copyright {
+        position:absolute;
+    }
+
+
+</style>
+
+</head>
+<body>
+
+{% if user.is_authenticated %}
+ <div class="topnav">
+ <a class="topnav-brand" href="{% url 'home' %}">
+     <img src="{% static 'Images/backgrounds/logo.png' %}" width="40" height="40" class="d-inline-block" alt="">
+    Rung Mua Café
+</a>
+
+<a href="{% url 'cart:cart_detail' %}"><i class="fa fa-fw fa-shopping-cart"></i>  Shopping Cart</a>
+<a href="{% url 'account:index' %}">Account</a>
+<a href="{% url 'logout' %}">Log Out</a>
+<a href="#">Welcome {{ user.username }}</a>
+</div>
+
+{% else %}
+<div class="topnav">
+ <a class="topnav-brand" href="{% url 'home' %}">
+     <img src="{% static 'Images/backgrounds/logo.png' %}" width="40" height="40" class="d-inline-block" alt="">
+    Rung Mua Café
+  </a>
+  <a href="{% url 'login' %}"><i class="fa fa-fw fa-shopping-cart"></i>  Shopping Cart</a>
+
+<a href="{% url 'signup' %}">Sign Up</a>
+  <a href="{% url 'login' %}">Sign In</a>
+  <a href="#">Welcome Customer</a>
+</div>
+{% endif %}
+
+
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+	<div class="w3-display-middle">
+
+<table id="table-logo">
+    <tr><td>
+        <img class= "w3-circle w3-white" src="{% static 'Images/backgrounds/logo.png' %}">
+    </td></tr>
+    <tr><td>
+    <br>
+    </td></tr>
+    <tr><td>
+    <span class="w3-image w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">   RUNG <span class="w3-padding-small"> MUA </span> CAFE</span>
+    </td></tr>
+  </table>
+
+</div>
+</div>
+
+<div id='cssmenu'>
+    <ul>
+        <li class='active'><a href="{% url 'home' %}"><span>Home</span></a></li>
+        <li class='has-sub'><a href="{% url 'aboutUs' %}"><span>About Us</span></a>
+            <ul>
+                <li class='has-sub'><a href='#Introduction'><span>Introduction</span></a></li>
+                <li class='has-sub'><a href='#Stories'><span>Our stories</span></a></li>
+                <li class='has-sub'><a href='#Coffee'><span>Our Coffee</span></a></li>
+            </ul>
+        </li>
+        <li><a href="{% url 'locations' %}"><span>Location</span></a></li>
+        <li class='has-sub'><a href="{% url 'menu' %}"><span>Menu</span></a></li>
+        <li class='has-sub'><a href="{% url 'shop:product_list' %}"><span>Online Shopping</span></a>
+            <ul>
+                <li class='has-sub'><a href="/shop/1/"><span>Coffee Beans</span></a></li>
+                <li class='has-sub'><a href="/shop/2/"><span>Drinks</span></a></li>
+                <li class='has-sub'><a href="/shop/3/"><span>Cakes</span></a></li>
+                <li class='has-sub'><a href="/shop/4/" ><span>Souvenirs</span></a></li>
+            </ul>
+        </li>
+        <li class='has-sub'><a href="{% url 'offers' %}"><span>Offers</span></a></li>
+        <li class='has-sub'><a href="{% url 'contactUs' %}"><span>Contact Us</span></a></li>
+        <li class='has-sub'><a href='#'><span></span></a></li>
+    </ul>
+</div>
+
+<main>
+    {% block content %}{% endblock %}
+
+
+</main>
+
+
+<div id="footer"><!-- footer 시작 -->
+    <p>서울시 강남구 테헤란로 231</p>
+    <p>대표: 이재원, Minh</p>
+    <p>사업자 등록번호: 632-21-332385</p>
+    <p class="copyright">Copyright ©2019 RUNGMUA All rights reserved.</p>
+</div><!-- // footer 끝 -->
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Error</h4>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+            Sign in first!
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel
+            </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

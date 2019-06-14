@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+{% block title %}
+    Checkout
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Your order</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                {% for item in cart %}
+                    <li class="list-group-item">
+                        ${{ item.total_price }}
+                        <span class="badge">{{ item.product.name }} x {{ item.quantity }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Total: ${{ cart.get_total_price }}</p>
+
+        </div>
+    </div>
+
+    <h2>Checkout information </h2>
+    <form action="." method="post" >
+        {% csrf_token %}
+
+        <label class="a">username:</label>
+        <input name="username" type="text" value="{{ user.username }}" readonly/>
+        <br/>
+        <label class="a">email:</label>
+        <input name="email" type="text" value="{{ user.email }}" readonly/>
+        <br/>
+        <label class="a">address:</label>
+        <input name="address" type="text"/>
+        <br/>
+        <button type="submit" class="btn btn-success btn-product b">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Place order
+        </button>
+    </form>
+</div>
+{% endblock %}

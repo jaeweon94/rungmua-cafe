@@ -1,0 +1,51 @@
+{% extends 'base_generic.html' %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">CUSTOMER'S FEEDBACK</h3>
+  <p class="w3-center"><em>Your feedback will be appreciated for a better service!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m8 w3-container">
+      <div class="w3-large w3-margin-bottom">
+
+      <p>Please use the form below or contact us directly via methods on the right.</p>
+      <form method="POST" name="Feedback Form"> {% csrf_token %}
+        <div class="w3-large" style="margin:0 -16px 8px -16px">
+        <div class="w3-half"> Customer's Name: </div>
+        <div class="w3-half"><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"> </div>
+        <br><br>
+        <div class="w3-half"> Email: </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        <br><br>
+        <div class="w3-half"> Phone Number: </div>
+        <div class="w3-half"><input class="w3-input w3-border" type="tel" placeholder="Phone Number" required name="Phone Number"> </div>
+        <br><br>
+        <div class="w3-half"> Feedback: </div><br>
+        <p>
+        <textarea required name="Feedback" placeholder="Feedback" style="height:300px;" class="w3-col m12"></textarea>
+        </p>
+        <br><br>
+        <button class="w3-button w3-black w3-right w3-section" type="submit" value="Feedback">
+          <i class="fa fa-paper-plane"></i> SEND FEEDBACK
+        </button>
+        </div>
+      </form>
+      </div>
+    </div>
+    </div>
+    <div class="w3-col m4 w3-panel">
+      <div class="w3-large">
+        <i class="fa fa-phone fa-fw  w3-xlarge w3-margin-right"></i> +00 151515<br>
+        <i class="fa fa-envelope fa-fw  w3-xlarge w3-margin-right"></i> rungmuacafe@gmail.com<br>
+        <i class="fa fa-facebook-square fa-fw  w3-xlarge w3-margin-right" style="color:#3b5998;"></i> Rung Mua Cafe<br>
+        <i class="fa fa-twitter-square fa-fw  w3-xlarge w3-margin-right" style="color:#55acee;"></i> Rung Mua Cafe<br>
+        <i class="fa fa-weibo fa-fw  w3-xlarge w3-margin-right" style="color:#E71D34;"></i> 雨林咖啡店<br>
+        <i class="fa fa-weixin fa-fw  w3-xlarge w3-margin-right" style="color:#93d034;"></i> 雨林咖啡店<br>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
